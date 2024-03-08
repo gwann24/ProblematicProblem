@@ -9,6 +9,7 @@ namespace ProblematicProblem
         static Random rng = new Random();
         static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
+        //static List<string> activities = new List<string>() { "Wine Tasting" };
         static void Main(string[] args)
         {
             //rng = new Random();
@@ -89,19 +90,19 @@ namespace ProblematicProblem
                 for (int i = 0; i < 10; i++)
                 {
                     Console.Write(". ");
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                 };
                 Console.WriteLine();
                 Console.Write("Choosing your random activity");
                 for (int i = 0; i < 9; i++)
                 {
                     Console.Write(". ");
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                 };
                 Console.WriteLine();
                 int randomNumber = rng.Next(activities.Count);
                 string randomActivity = activities[randomNumber];
-                if (userAge > 21 && randomActivity == "Wine Tasting")
+                if (userAge < 21 && randomActivity == "Wine Tasting")
                 {
                     Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
                     Console.WriteLine("Pick something else!");
@@ -109,7 +110,7 @@ namespace ProblematicProblem
                     randomNumber = rng.Next(activities.Count);
                     randomActivity = activities[randomNumber];
                 };
-                Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
+                Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
                 responseCount = 0;
                 do
